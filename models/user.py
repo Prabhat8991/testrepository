@@ -18,8 +18,8 @@ class UserModel(db.Model):
 
     @classmethod
     def find_by_user_name(cls, username):
-        user = cls.query.filter_by(username = username).first()
+        return cls.query.filter_by(username = username).first()
 
     @classmethod
     def find_by_id(cls, _id):
-        return cls.query.filter_by(id = _id)
+        return cls.query.filter_by(id = _id).first()
