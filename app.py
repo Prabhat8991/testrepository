@@ -19,9 +19,3 @@ api.add_resource(UserRegister,'/register')
 @app.before_first_request
 def create_tables():
     db.create_all()
-
-
-if __name__ == '__main__': #Python executes statements in of a imported file; to prevent some statement to execute when imported do this
-    from db import db  #importing here due to circular import problem
-    db.init_app(app)
-    app.run(port=5000, debug = True)
