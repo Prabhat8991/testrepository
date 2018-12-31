@@ -18,6 +18,7 @@ class UserRegister(Resource):
 
     parser.add_argument('email',
     type = str,
+    required = True,
     help = 'This field cannot be blank')
 
 
@@ -28,7 +29,7 @@ class UserRegister(Resource):
         if UserModel.find_by_user_name(data['username']):
             return {"message": "A user with that username already exists"}, 300
 
-        user = UserModel(*data)  #data['username'], data['password'], data['email']
+        user = UserModel(**data)  #data['username'], data['password'], data['email']
         user.save_to_db()
 
         return {'message' : 'user created successfully'}, 201
