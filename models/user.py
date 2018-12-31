@@ -15,7 +15,7 @@ class UserModel(db.Model):
         self.email = email
 
     def json(self):
-        return {'name':self.name, 'email':self.email}
+        return {'username':self.username, 'email':self.email}
 
     def save_to_db(self):
         db.session.add(self)
